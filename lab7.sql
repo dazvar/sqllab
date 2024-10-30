@@ -1,7 +1,7 @@
-CREATE TABLE users (
+CREATE TABLE guests (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(50),
-    email VARCHAR(100)
+    ip_address VARCHAR(45) NOT NULL,
+    UNIQUE(ip_address)
 );
 CREATE TABLE categories (
     id INT PRIMARY KEY AUTO_INCREMENT,
