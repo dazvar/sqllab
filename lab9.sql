@@ -1,17 +1,17 @@
 CREATE TABLE projects (
-    project_id INT AUTO_INCREMENT PRIMARY KEY,
-    project_name VARCHAR(255) NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
     description TEXT
 );
 CREATE TABLE users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE
 );
 CREATE TABLE tasks (
-    task_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     project_id INT,
-    task_name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     description TEXT,
     author_id INT,
     FOREIGN KEY (project_id) REFERENCES projects(project_id),
@@ -32,10 +32,10 @@ CREATE TABLE task_assignees (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 CREATE TABLE files (
-    file_id INT AUTO_INCREMENT PRIMARY KEY,
-    project_id INT,
-    task_id INT,
-    file_path VARCHAR(255) NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    project_id INT NULL,
+    task_id INT NULL,
+    path VARCHAR(255) NOT NULL,
     FOREIGN KEY (project_id) REFERENCES projects(project_id),
     FOREIGN KEY (task_id) REFERENCES tasks(task_id)
 );
