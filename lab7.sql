@@ -33,8 +33,7 @@ CREATE TABLE ratings (
 CREATE TABLE comments (
     id INT PRIMARY KEY AUTO_INCREMENT,
     article_id INT NOT NULL,
-    user_id INT,
-    ip_address VARCHAR(45),
+    user_id INT NULL,
     content TEXT NOT NULL,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (article_id) REFERENCES articles(id),
